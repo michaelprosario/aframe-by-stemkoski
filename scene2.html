@@ -13,7 +13,7 @@
 
 <body>
 
-    <a-scene environment="preset: goaland;" renderer="antialias: true;">
+    <a-scene environment="preset: forest;" renderer="antialias: true;">
 
         <a-assets>
             <img id="gradient" src="images/gradient-fade.png" />
@@ -21,7 +21,7 @@
             <a-asset-item id="tree2" src="models/trees/ElmTree.gltf"></a-asset-item>
             <a-asset-item id="tree3" src="models/trees/OakTree.gltf"></a-asset-item>
             <a-asset-item id="tree4" src="models/trees/PineTree.gltf"></a-asset-item>            
-            <a-asset-item id="space1" src="models/art/space1.glb"></a-asset-item>    
+            <a-asset-item id="space2" src="models/art/space2.glb"></a-asset-item>    
         </a-assets>
 
         <a-sky color="#000337">
@@ -52,11 +52,11 @@
 
         </a-entity>
 
-        <a-entity gltf-model="#tree1" position="-40 0 -20"></a-entity>        
-        <a-entity gltf-model="#tree2" position="-20 0 -20"></a-entity>
-        <a-entity gltf-model="#tree4" position="0 0 -20"></a-entity>
-        <a-entity gltf-model="#tree2" position="20 0 -20"></a-entity>
-        <a-entity gltf-model="#tree1" position="40 0 -20"></a-entity>
+        <a-entity gltf-model="#tree1" position="-40 0 -40"></a-entity>        
+        <a-entity gltf-model="#tree2" position="-20 0 -40"></a-entity>
+        <a-entity gltf-model="#tree4" position="0 0 -40"></a-entity>
+        <a-entity gltf-model="#tree2" position="20 0 -40"></a-entity>
+        <a-entity gltf-model="#tree1" position="40 0 -40"></a-entity>
 
         <a-entity gltf-model="#tree1" position="-40 0 40"></a-entity>        
         <a-entity gltf-model="#tree4" position="-20 0 40"></a-entity>
@@ -64,14 +64,14 @@
         <a-entity gltf-model="#tree2" position="20 0 40"></a-entity>
         <a-entity gltf-model="#tree1" position="40 0 40"></a-entity>
 
-        <a-entity gltf-model="#tree1" position="-40 0 20"></a-entity>        
-        <a-entity gltf-model="#tree1" position="-20 0 20"></a-entity>
-        <a-entity gltf-model="#tree2" position="0 0 20"></a-entity>
-        <a-entity gltf-model="#tree2" position="20 0 20"></a-entity>
-        <a-entity gltf-model="#tree4" position="40 0 20"></a-entity>
+        <a-entity gltf-model="#tree1" position="-40 0 60"></a-entity>        
+        <a-entity gltf-model="#tree1" position="-20 0 60"></a-entity>
+        <a-entity gltf-model="#tree2" position="0 0 60"></a-entity>
+        <a-entity gltf-model="#tree2" position="20 0 60"></a-entity>
+        <a-entity gltf-model="#tree4" position="40 0 60"></a-entity>
 
 
-        <a-entity gltf-model="#space1" position="20 0 0" scale="0.5 0.5 0.5" rotation="0 0 0"></a-entity>
+        <a-entity gltf-model="#space2" position="20 0 0" scale="0.3 0.3 0.3" rotation="0 0 0"></a-entity>
 
     </a-scene>
 
