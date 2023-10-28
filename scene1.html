@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A-Frame: Quest movement and interaction</title>
+    <meta name="description" content="Moving around an A-Frame scene with Quest touch controllers.">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="js/aframe-environment-component.js"></script>
+    <script src="js/controller-listener.js"></script>
+    <script src="js/player-move.js"></script>
+    <script src="js/raycaster-extras.js"></script>
+</head>
+
+<body>
+
+    <a-scene environment="preset: forest;" renderer="antialias: true;">
+
+        <a-assets>
+            <img id="gradient" src="images/gradient-fade.png" />
+            <a-asset-item id="tree1" src="models/trees/AshTree.gltf"></a-asset-item>
+            <a-asset-item id="tree2" src="models/trees/ElmTree.gltf"></a-asset-item>
+            <a-asset-item id="tree3" src="models/trees/OakTree.gltf"></a-asset-item>
+            <a-asset-item id="tree4" src="models/trees/PineTree.gltf"></a-asset-item>            
+        </a-assets>
+
+        <a-sky color="#000337">
+        </a-sky>
+
+        <!-- use a simple mesh for raycasting/navigation -->
+        <a-plane width="100" height="100" rotation="-90 0 0" position="0 0.01 0" visible="false" class="groundPlane"
+            raycaster-target>
+        </a-plane>
+
+        <a-entity id="player" position="0 0 0" player-move="controllerListenerId: #controller-data;
+                     navigationMeshClass: groundPlane;">
+
+            <a-camera></a-camera>
+
+            <a-entity id="controller-data" controller-listener="leftControllerId:  #left-controller; 
+                                 rightControllerId: #right-controller;">
+            </a-entity>
+
+            <a-entity id="left-controller" oculus-touch-controls="hand: left">
+            </a-entity>
+
+            <!-- experiment with raycasting interval; slight performance improvement but jittery appearance in world -->
+            <a-entity id="right-controller" oculus-touch-controls="hand: right"
+                raycaster="objects: .raycaster-target; interval: 0;" raycaster-extras="controllerListenerId: #controller-data; 
+                              beamImageSrc: #gradient; beamLength: 0.5;">
+            </a-entity>
+
+        </a-entity>
+
+        <a-entity gltf-model="#tree1" position="-40 0 -20"></a-entity>        
+        <a-entity gltf-model="#tree2" position="-20 0 -20"></a-entity>
+        <a-entity gltf-model="#tree4" position="0 0 -20"></a-entity>
+        <a-entity gltf-model="#tree2" position="20 0 -20"></a-entity>
+        <a-entity gltf-model="#tree1" position="40 0 -20"></a-entity>
+
+
+        <a-entity gltf-model="#tree1" position="-40 0 0"></a-entity>        
+        <a-entity gltf-model="#tree4" position="-20 0 0"></a-entity>
+        <a-entity gltf-model="#tree1" position="-60 0 0"></a-entity>
+        <a-entity gltf-model="#tree2" position="20 0 0"></a-entity>
+        <a-entity gltf-model="#tree1" position="40 0 0"></a-entity>
+
+
+        <a-entity gltf-model="#tree1" position="-40 0 20"></a-entity>        
+        <a-entity gltf-model="#tree1" position="-20 0 20"></a-entity>
+        <a-entity gltf-model="#tree2" position="0 0 20"></a-entity>
+        <a-entity gltf-model="#tree2" position="20 0 20"></a-entity>
+        <a-entity gltf-model="#tree4" position="40 0 20"></a-entity>
+
+
+    </a-scene>
+
+</body>
+
+</html>
